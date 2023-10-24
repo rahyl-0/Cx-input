@@ -1,0 +1,35 @@
+<div>
+  <input
+    [type]="charType"
+    [formControl]="control"
+    [mask]="attributes.mask ? attributes.mask : ''"
+    [patterns]="attributes.customPattern ? attributes.customPattern : undefined"
+    [dropSpecialCharacters]="
+      attributes.dropSpecialCharacters
+        ? attributes.dropSpecialCharacters
+        : undefined
+    "
+    [allowNegativeNumbers]="
+      attributes.allowNegativeNumbers
+        ? attributes.allowNegativeNumbers
+        : undefined
+    "
+    [separatorLimit]="
+      attributes.separatorLimit ? attributes.separatorLimit : undefined
+    "
+    [specialCharacters]="
+      attributes.specialCharacters ? attributes.specialCharacters : undefined
+    "
+    [thousandSeparator]="
+      attributes.thousandSeparator ? attributes.thousandSeparator : undefined
+    "
+    [suffix]="attributes.suffix ? attributes.suffix : ''"
+    [minlength]="attributes.minLength ? attributes.minLength : undefined"
+    [maxlength]="attributes.maxLength ? attributes.maxLength : undefined"
+  />
+  <ng-container *ngIf="control.dirty && control.touched && control.errors">
+    <div *ngIf="control.errors.required">Value is required</div>
+    <div *ngIf="control.errors.mask">Invalid Format</div>
+    <!-- <div *ngIf="control.errors.minlength"></div> -->
+  </ng-container>
+</div>
